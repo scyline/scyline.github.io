@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-label="Shawn Wu">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f2428"/>
+      <stop offset="100%" stop-color="#4e5a55"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#g)"/>
+  <rect x="24" y="24" width="1872" height="1032" fill="none" stroke="#f0f2f0" stroke-opacity="0.25" stroke-width="2"/>
+  <text x="50%" y="48%" text-anchor="middle" fill="#f0f2f0" fill-opacity="0.85" font-family="Georgia, serif" font-size="106">Shawn Wu</text>
+  <text x="50%" y="58%" text-anchor="middle" fill="#f0f2f0" fill-opacity="0.55" font-family="system-ui, sans-serif" font-size="48">Placeholder — replace with your photo</text>
+</svg>
