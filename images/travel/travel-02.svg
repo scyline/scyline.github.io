@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img" aria-label="Travel 02">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img" aria-label="Travel 02 placeholder">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#36424a"/>
@@ -6,7 +6,6 @@
     </linearGradient>
   </defs>
   <rect width="900" height="1200" fill="url(#g)"/>
-  <rect x="24" y="24" width="852" height="1152" fill="none" stroke="#f3efe8" stroke-opacity="0.25" stroke-width="2"/>
-  <text x="50%" y="48%" text-anchor="middle" fill="#f3efe8" fill-opacity="0.85" font-family="Georgia, serif" font-size="50">Travel 02</text>
-  <text x="50%" y="58%" text-anchor="middle" fill="#f3efe8" fill-opacity="0.55" font-family="system-ui, sans-serif" font-size="22">Placeholder — replace with your photo</text>
+  <rect x="24" y="24" width="852" height="1152" fill="none" stroke="#f3efe8" stroke-opacity="0.2" stroke-width="2"/>
+  <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="#f3efe8" fill-opacity="0.45" font-family="system-ui, sans-serif" font-size="20">Travel 02 placeholder</text>
 </svg>
