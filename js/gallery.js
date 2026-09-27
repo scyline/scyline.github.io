@@ -78,8 +78,9 @@
       if (index >= 0) setActive(index);
     },
     {
-      root: viewer,
-      threshold: [0.45, 0.65, 0.85],
+      root: null,
+      rootMargin: "-20% 0px -35% 0px",
+      threshold: [0.2, 0.45, 0.7],
     }
   );
 
@@ -90,12 +91,12 @@
     if (event.key === "ArrowDown" || event.key === "PageDown") {
       event.preventDefault();
       const next = Math.min(slides.length - 1, current + 1);
-      slides[next].scrollIntoView({ behavior: "smooth", block: "start" });
+      slides[next].scrollIntoView({ behavior: "smooth", block: "center" });
     }
     if (event.key === "ArrowUp" || event.key === "PageUp") {
       event.preventDefault();
       const prev = Math.max(0, current - 1);
-      slides[prev].scrollIntoView({ behavior: "smooth", block: "start" });
+      slides[prev].scrollIntoView({ behavior: "smooth", block: "center" });
     }
   });
 })();

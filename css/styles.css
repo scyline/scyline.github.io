@@ -14,6 +14,8 @@
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --max: 1120px;
   --nav-inset: clamp(1.1rem, 3vw, 2rem);
+  --minimap-rail: 3.75rem;
+  --nav-rail: clamp(10rem, 20vw, 14rem);
 }
 
 *,
@@ -121,9 +123,7 @@ button {
 }
 
 body.is-home .site-nav a,
-body.is-home .site-nav .nav-trigger,
-body.is-viewer .site-nav a,
-body.is-viewer .site-nav .nav-trigger {
+body.is-home .site-nav .nav-trigger {
   color: rgba(255, 255, 255, 0.72);
   text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
 }
@@ -132,17 +132,11 @@ body.is-home .site-nav a:hover,
 body.is-home .site-nav a[aria-current="page"],
 body.is-home .site-nav .nav-trigger:hover,
 body.is-home .site-nav .nav-trigger[aria-expanded="true"],
-body.is-home .site-nav .nav-item--photo.is-active .nav-trigger,
-body.is-viewer .site-nav a:hover,
-body.is-viewer .site-nav a[aria-current="page"],
-body.is-viewer .site-nav .nav-trigger:hover,
-body.is-viewer .site-nav .nav-trigger[aria-expanded="true"],
-body.is-viewer .site-nav .nav-item--photo.is-active .nav-trigger {
+body.is-home .site-nav .nav-item--photo.is-active .nav-trigger {
   color: var(--white);
 }
 
-body.is-home .nav-submenu a,
-body.is-viewer .nav-submenu a {
+body.is-home .nav-submenu a {
   color: rgba(255, 255, 255, 0.68);
 }
 
@@ -396,37 +390,36 @@ body.is-viewer .nav-submenu a {
   letter-spacing: -0.02em;
 }
 
-/* Vertical photo viewer + left minimap */
+/* Vertical photo column + left minimap */
 body.is-viewer {
-  background: #121416;
-  color: var(--white);
-  overflow: hidden;
+  /* keep the site's original paper background */
 }
 
 .minimap {
   position: fixed;
   top: 50%;
-  left: clamp(0.65rem, 2vw, 1.1rem);
+  left: clamp(0.55rem, 1.5vw, 0.95rem);
   z-index: 45;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   gap: 0.45rem;
+  width: var(--minimap-rail);
   max-height: min(70vh, 36rem);
   overflow-y: auto;
-  padding: 0.2rem;
+  padding: 0.15rem;
   scrollbar-width: thin;
 }
 
 .minimap-dot {
-  width: 2.4rem;
-  height: 3rem;
+  width: 2.35rem;
+  height: 2.95rem;
   padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  border: 1px solid var(--line);
   border-radius: 0.15rem;
   overflow: hidden;
   opacity: 0.45;
-  background: #2a2e32;
+  background: #d7dbd4;
   transition: opacity 0.25s var(--ease), border-color 0.25s var(--ease), transform 0.25s var(--ease);
 }
 
@@ -442,35 +435,33 @@ body.is-viewer {
 
 .minimap-dot.is-active {
   opacity: 1;
-  border-color: rgba(255, 255, 255, 0.9);
+  border-color: var(--ink);
   transform: scale(1.06);
 }
 
 .viewer {
-  height: 100vh;
-  height: 100dvh;
-  overflow-y: auto;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.75rem, 4vw, 3rem);
+  width: 100%;
+  min-height: 100vh;
+  padding:
+    clamp(1.5rem, 4vw, 2.5rem)
+    var(--nav-rail)
+    clamp(2.5rem, 6vw, 4rem)
+    calc(var(--minimap-rail) + 1rem);
 }
 
 .viewer-slide {
   margin: 0;
-  height: 100vh;
-  height: 100dvh;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  display: grid;
-  place-items: center;
-  padding: 1.25rem 4.5rem 1.25rem 4.25rem;
+  width: 100%;
 }
 
 .viewer-slide img {
-  width: auto;
+  display: block;
+  width: 100%;
   height: auto;
-  max-width: min(100%, 1100px);
-  max-height: calc(100vh - 2.5rem);
-  max-height: calc(100dvh - 2.5rem);
+  max-width: 100%;
   object-fit: contain;
 }
 
@@ -653,8 +644,13 @@ body.is-viewer {
     padding-top: 6rem;
   }
 
+  :root {
+    --minimap-rail: 2.85rem;
+    --nav-rail: 5.5rem;
+  }
+
   .minimap {
-    left: 0.45rem;
+    left: 0.35rem;
     gap: 0.35rem;
   }
 
@@ -663,8 +659,9 @@ body.is-viewer {
     height: 2.35rem;
   }
 
-  .viewer-slide {
-    padding: 1rem 1rem 1rem 3rem;
+  .viewer {
+    gap: 1.5rem;
+    padding-left: calc(var(--minimap-rail) + 0.65rem);
   }
 
   .lightbox-prev,
