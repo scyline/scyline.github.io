@@ -13,7 +13,15 @@
 <body>
   <nav class="site-nav" aria-label="Primary">
     <a href="../../index.html">Home</a>
-    <a href="../index.html" aria-current="page">Photography</a>
+    <div class="nav-item nav-item--photo is-active is-open" data-nav-photo data-keep-open>
+      <button type="button" class="nav-trigger" aria-expanded="true" aria-controls="photo-submenu">Photography</button>
+      <div class="nav-submenu" id="photo-submenu">
+      <a href="../street/index.html">Street / Daily Life</a>
+      <a href="../architecture/index.html" aria-current="page">Architecture</a>
+      <a href="../travel/index.html">Travel</a>
+      <a href="../film/index.html">Film</a>
+      </div>
+    </div>
     <a href="../../about.html">About</a>
     <a href="../../contact.html">Contact</a>
   </nav>
