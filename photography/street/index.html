@@ -11,20 +11,14 @@
   <link rel="stylesheet" href="../../css/styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="../../index.html">Shawn <span>Wu</span></a>
-    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
-      <span></span>
-    </button>
-    <nav class="nav" aria-label="Primary">
-      <a href="../../index.html">Home</a>
-      <a href="../index.html" aria-current="page">Photography</a>
-      <a href="../../about.html">About</a>
-      <a href="../../contact.html">Contact</a>
-    </nav>
-  </header>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="../../index.html">Home</a>
+    <a href="../index.html" aria-current="page">Photography</a>
+    <a href="../../about.html">About</a>
+    <a href="../../contact.html">Contact</a>
+  </nav>
 
-  <main class="page">
+<main class="page page--inner">
     <section class="section">
       <a class="back-link" href="../index.html">&larr; All photography</a>
       <header class="section-header">
@@ -82,12 +76,6 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p>&copy; <span id="year"></span> Shawn Wu</p>
-    <p><a href="https://www.instagram.com/lazy_mdlr/" target="_blank" rel="noopener noreferrer">@lazy_mdlr</a></p>
-  </footer>
-
   <script src="../../js/gallery.js"></script>
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>

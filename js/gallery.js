@@ -109,21 +109,3 @@
     if (event.key === "ArrowRight") show(index + 1);
   });
 })();
-
-(() => {
-  const toggle = document.querySelector(".nav-toggle");
-  const nav = document.querySelector(".nav");
-  if (!toggle || !nav) return;
-
-  toggle.addEventListener("click", () => {
-    const open = document.body.classList.toggle("nav-open");
-    toggle.setAttribute("aria-expanded", open ? "true" : "false");
-  });
-
-  nav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      document.body.classList.remove("nav-open");
-      toggle.setAttribute("aria-expanded", "false");
-    });
-  });
-})();
