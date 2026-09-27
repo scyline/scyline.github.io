@@ -15,8 +15,13 @@
   --max: 1120px;
   --nav-inset: clamp(1.1rem, 3vw, 2rem);
   --minimap-rail: 3.75rem;
-  /* Reserve space for top-right menu + Photography submenu labels */
-  --nav-rail: clamp(12.5rem, 26vw, 17.5rem);
+  /* Right column reserved for primary nav + Photography submenu (no photo overlap) */
+  --nav-main-width: 7.5rem;
+  --nav-submenu-width: 10rem;
+  --nav-submenu-gap: 1.35rem;
+  --nav-rail: calc(
+    var(--nav-inset) + var(--nav-main-width) + var(--nav-submenu-gap) + var(--nav-submenu-width)
+  );
 }
 
 *,
@@ -438,6 +443,10 @@ body.is-home .nav-submenu a {
 }
 
 .viewer {
+  --photo-column: min(
+    950px,
+    calc(100vw - var(--minimap-rail) - 1rem - var(--nav-rail) - 0.5rem)
+  );
   display: flex;
   flex-direction: column;
   gap: clamp(1.75rem, 4vw, 3rem);
@@ -448,11 +457,19 @@ body.is-home .nav-submenu a {
     var(--nav-rail)
     clamp(2.5rem, 6vw, 4rem)
     calc(var(--minimap-rail) + 1rem);
+  overflow-x: clip;
+}
+
+/* Keep menu/submenu above photos in the reserved right column */
+body.is-viewer .site-nav {
+  width: calc(var(--nav-main-width));
+  max-width: calc(100vw - var(--nav-inset) * 2);
 }
 
 .viewer-slide {
   margin: 0;
-  width: 100%;
+  width: min(100%, var(--photo-column));
+  max-width: var(--photo-column);
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -462,7 +479,7 @@ body.is-home .nav-submenu a {
   display: block;
   width: auto;
   height: auto;
-  max-width: min(100%, 950px);
+  max-width: min(100%, 950px, var(--photo-column));
   max-height: 700px;
   object-fit: contain;
 }
@@ -648,7 +665,10 @@ body.is-home .nav-submenu a {
 
   :root {
     --minimap-rail: 2.85rem;
-    --nav-rail: 5.5rem;
+    /* Submenu stacks under Photography on small screens; reserve main nav only */
+    --nav-submenu-width: 0rem;
+    --nav-submenu-gap: 0rem;
+    --nav-main-width: 6.5rem;
   }
 
   .minimap {
