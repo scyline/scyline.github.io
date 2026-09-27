@@ -34,6 +34,36 @@
 })();
 
 (() => {
+  const toggle = document.querySelector("[data-menu-toggle]");
+  const nav = document.querySelector("#site-nav");
+  if (!toggle || !nav) return;
+
+  function setMenuOpen(open) {
+    document.body.classList.toggle("menu-open", open);
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+
+  toggle.addEventListener("click", (event) => {
+    event.stopPropagation();
+    setMenuOpen(!document.body.classList.contains("menu-open"));
+  });
+
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setMenuOpen(false));
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!document.body.classList.contains("menu-open")) return;
+    if (nav.contains(event.target) || toggle.contains(event.target)) return;
+    setMenuOpen(false);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") setMenuOpen(false);
+  });
+})();
+
+(() => {
   const viewer = document.querySelector("[data-viewer]");
   const minimap = document.querySelector("[data-minimap]");
   if (!viewer || !minimap) return;
