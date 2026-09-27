@@ -1,4 +1,39 @@
 (() => {
+  const photoItem = document.querySelector("[data-nav-photo]");
+  if (!photoItem) return;
+
+  const trigger = photoItem.querySelector(".nav-trigger");
+  const submenu = photoItem.querySelector(".nav-submenu");
+  if (!trigger || !submenu) return;
+
+  const keepOpen = photoItem.hasAttribute("data-keep-open");
+
+  function setOpen(open) {
+    photoItem.classList.toggle("is-open", open);
+    trigger.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+
+  if (keepOpen) setOpen(true);
+
+  trigger.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setOpen(!photoItem.classList.contains("is-open"));
+  });
+
+  document.addEventListener("click", (event) => {
+    if (keepOpen) return;
+    if (!photoItem.contains(event.target)) setOpen(false);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    if (keepOpen) return;
+    setOpen(false);
+  });
+})();
+
+(() => {
   const gallery = document.querySelector("[data-gallery]");
   if (!gallery) return;
 
