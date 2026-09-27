@@ -391,9 +391,6 @@ body.is-home .nav-submenu a {
 }
 
 /* Vertical photo column + left minimap */
-body.is-viewer {
-  /* keep the site's original paper background */
-}
 
 .minimap {
   position: fixed;
