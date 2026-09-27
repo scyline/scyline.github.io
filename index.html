@@ -1,154 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive Grid</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Shawn Wu — Photography</title>
+  <meta name="description" content="Photography portfolio by Shawn Wu — street, architecture, travel, and film.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
+  <header class="site-header">
+    <a class="brand" href="index.html">Shawn <span>Wu</span></a>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+    </button>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="photography/index.html">Photography</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-  <div class="grid">
-
-    <div class="card title">
-      <h1>Hello World!</h1>
-      <p>Welcome to my website!!</p>
-    </div>
-
-    <div class="card">
-      <div class="header has-border teal">
-        <h3>Today Is</h3>
-        <div class="close has-border"></div>
+  <main class="page">
+    <section class="hero" aria-label="Featured photograph">
+      <div class="hero-media">
+        <img src="images/home/hero.svg" alt="Placeholder hero image for Shawn Wu photography">
       </div>
-      <div class="content time y-center">
-        <p>12/31/1999</p>
-        <p>11:59 PM</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="header has-border purple">
-        <h3>Num Pad</h3>
-        <div class="close has-border"></div>
-      </div>
-      <div class="content numpad">
-        <div class="number">1</div>
-        <div class="number">2</div>
-        <div class="number">3</div>
-        <div class="number">4</div>
-        <div class="number">5</div>
-        <div class="number">6</div>
-        <div class="number">7</div>
-        <div class="number">8</div>
-        <div class="number">9</div>
-        <div class="number">0</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="header has-border lpurple">
-        <h3>System Info</h3>
-        <div class="close has-border"></div>
-      </div>
-      <div class="content">
-        <p>
-          <strong>RAM:</strong> 128MB
-        </p>
-        <p>
-          <strong>Processor:</strong> Pentium 3
-        </p>
-        <p>
-          <strong>Monitor:</strong> VGA 256 colors @ 640x480
-        </p>
-        <p>
-          <strong>Modem Speed:</strong> 2400 baud
-        </p>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="header has-border green">
-        <h3>To Do</h3>
-        <div class="close has-border"></div>
-      </div>
-      <div class="content">
-        <ul>
-          <li>Touch grass</li>
-          <li>Get groceries</li>
-          <li>Read newspaper</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="header has-border teal">
-        <h3>Moar Cowbell</h3>
-        <div class="close has-border"></div>
-      </div>
-      <div class="content x-center y-center cowbell">
-
-        <div>🐮</div>
-        <input type="range" name="" id="" list="markers">
-        <datalist id="markers">
-          <option value="0"></option>
-          <option value="25"></option>
-          <option value="50"></option>
-          <option value="75"></option>
-          <option value="100"></option>
-        </datalist>
-        <div>🔔</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="header has-border pink">
-        <h3>Files</h3>
-        <div class="close has-border"></div>
-      </div>
-      <div class="content files y-center">
-        <div class="file">
-          <div class="doc-icon has-border"></div>
-          notes.txt
-        </div>
-        <div class="file">
-          <div class="music-icon has-border"></div>
-          music.mp3
-        </div>
-        <div class="file">
-          <div class="image-icon has-border"></div>
-          pic.jpg
+      <div class="hero-content">
+        <h1 class="hero-brand">Shawn Wu</h1>
+        <p class="hero-lede">Photography across street life, architecture, travel, and film.</p>
+        <div class="btn-row">
+          <a class="btn" href="photography/index.html">View photography</a>
+          <a class="btn btn-ghost" href="https://www.instagram.com/lazy_mdlr/" target="_blank" rel="noopener noreferrer">Instagram</a>
         </div>
       </div>
-    </div>
+    </section>
+  </main>
 
-    <div class="card">
-      <div class="header has-border purple">
-        <h3>Disk Drive</h3>
-        <div class="close has-border"></div>
-      </div>
-      <div class="content disk x-center y-center">
-        <div class="floppy">
-          <div class="label"></div>
-        </div>
-        A: has disk
-      </div>
-    </div>
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Shawn Wu</p>
+    <p><a href="https://www.instagram.com/lazy_mdlr/" target="_blank" rel="noopener noreferrer">@lazy_mdlr</a></p>
+  </footer>
 
-    <div class="card">
-      <div class="header has-border lpurple">
-        <h3>Hard Drive</h3>
-        <div class="close has-border"></div>
-      </div>
-      <div class="content storage x-center y-center">
-        <div class="storage-bar has-border"></div>
-        49.2 MB remaining / 500 MB
-      </div>
-    </div>
-
-  </div>
-
+  <script src="js/gallery.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
-
 </html>

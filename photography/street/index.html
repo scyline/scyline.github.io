@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Street / Daily Life — Shawn Wu</title>
+  <meta name="description" content="Street and daily life photography by Shawn Wu.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../../index.html">Shawn <span>Wu</span></a>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+    </button>
+    <nav class="nav" aria-label="Primary">
+      <a href="../../index.html">Home</a>
+      <a href="../index.html" aria-current="page">Photography</a>
+      <a href="../../about.html">About</a>
+      <a href="../../contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="section">
+      <a class="back-link" href="../index.html">&larr; All photography</a>
+      <header class="section-header">
+        <span class="eyebrow">Photography</span>
+        <h1>Street / Daily Life</h1>
+        <p>Placeholder gallery — replace these images with your street and daily life work.</p>
+      </header>
+
+      <div class="gallery" data-gallery>
+        <!--
+          HOW TO ADD A PHOTO
+          1. Put the file in /images/street/ (e.g. street-04.jpg)
+          2. Copy one <figure> block below
+          3. Change src, alt, and optional data-title / data-caption
+          data-title and data-caption are optional — omit either if you don't want text.
+        -->
+        <figure
+          class="gallery-item"
+          data-full="../../images/street/street-01.svg"
+          data-title="Morning commute"
+          data-caption="Example caption — replace with a short note about this photo, or leave blank."
+        >
+          <div class="gallery-frame">
+            <img src="../../images/street/street-01.svg" alt="Placeholder street photo 01">
+          </div>
+          <figcaption class="gallery-meta">
+            <span class="gallery-title">Morning commute</span>
+            <span class="gallery-caption">Example caption — replace with a short note about this photo, or leave blank.</span>
+          </figcaption>
+        </figure>
+
+        <figure
+          class="gallery-item"
+          data-full="../../images/street/street-02.svg"
+          data-title="Corner light"
+          data-caption=""
+        >
+          <div class="gallery-frame">
+            <img src="../../images/street/street-02.svg" alt="Placeholder street photo 02">
+          </div>
+          <figcaption class="gallery-meta">
+            <span class="gallery-title">Corner light</span>
+          </figcaption>
+        </figure>
+
+        <figure
+          class="gallery-item"
+          data-full="../../images/street/street-03.svg"
+        >
+          <div class="gallery-frame">
+            <img src="../../images/street/street-03.svg" alt="Placeholder street photo 03">
+          </div>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Shawn Wu</p>
+    <p><a href="https://www.instagram.com/lazy_mdlr/" target="_blank" rel="noopener noreferrer">@lazy_mdlr</a></p>
+  </footer>
+
+  <script src="../../js/gallery.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

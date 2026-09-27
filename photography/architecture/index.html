@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecture — Shawn Wu</title>
+  <meta name="description" content="Architecture photography by Shawn Wu.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../../index.html">Shawn <span>Wu</span></a>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+    </button>
+    <nav class="nav" aria-label="Primary">
+      <a href="../../index.html">Home</a>
+      <a href="../index.html" aria-current="page">Photography</a>
+      <a href="../../about.html">About</a>
+      <a href="../../contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="section">
+      <a class="back-link" href="../index.html">&larr; All photography</a>
+      <header class="section-header">
+        <span class="eyebrow">Photography</span>
+        <h1>Architecture</h1>
+        <p>Placeholder gallery — replace these images with your architecture work.</p>
+      </header>
+
+      <div class="gallery" data-gallery>
+        <figure
+          class="gallery-item"
+          data-full="../../images/architecture/architecture-01.svg"
+          data-title="Facade study"
+          data-caption="Example short text for this frame. Delete data-caption if you don't need it."
+        >
+          <div class="gallery-frame">
+            <img src="../../images/architecture/architecture-01.svg" alt="Placeholder architecture photo 01">
+          </div>
+          <figcaption class="gallery-meta">
+            <span class="gallery-title">Facade study</span>
+            <span class="gallery-caption">Example short text for this frame. Delete data-caption if you don't need it.</span>
+          </figcaption>
+        </figure>
+
+        <figure
+          class="gallery-item"
+          data-full="../../images/architecture/architecture-02.svg"
+        >
+          <div class="gallery-frame">
+            <img src="../../images/architecture/architecture-02.svg" alt="Placeholder architecture photo 02">
+          </div>
+        </figure>
+
+        <figure
+          class="gallery-item"
+          data-full="../../images/architecture/architecture-03.svg"
+          data-title="Lobby quiet"
+        >
+          <div class="gallery-frame">
+            <img src="../../images/architecture/architecture-03.svg" alt="Placeholder architecture photo 03">
+          </div>
+          <figcaption class="gallery-meta">
+            <span class="gallery-title">Lobby quiet</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Shawn Wu</p>
+    <p><a href="https://www.instagram.com/lazy_mdlr/" target="_blank" rel="noopener noreferrer">@lazy_mdlr</a></p>
+  </footer>
+
+  <script src="../../js/gallery.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
