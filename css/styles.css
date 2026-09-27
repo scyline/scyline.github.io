@@ -15,7 +15,8 @@
   --max: 1120px;
   --nav-inset: clamp(1.1rem, 3vw, 2rem);
   --minimap-rail: 3.75rem;
-  --nav-rail: clamp(10rem, 20vw, 14rem);
+  /* Reserve space for top-right menu + Photography submenu labels */
+  --nav-rail: clamp(12.5rem, 26vw, 17.5rem);
 }
 
 *,
