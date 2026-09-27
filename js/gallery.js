@@ -34,6 +34,73 @@
 })();
 
 (() => {
+  const viewer = document.querySelector("[data-viewer]");
+  const minimap = document.querySelector("[data-minimap]");
+  if (!viewer || !minimap) return;
+
+  const slides = [...viewer.querySelectorAll("[data-viewer-slide]")];
+  if (!slides.length) return;
+
+  const dots = slides.map((slide, index) => {
+    const img = slide.querySelector("img");
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "minimap-dot";
+    button.setAttribute("aria-label", `Go to photo ${index + 1}`);
+    if (img) {
+      const thumb = document.createElement("img");
+      thumb.src = img.currentSrc || img.src;
+      thumb.alt = "";
+      button.appendChild(thumb);
+    }
+    button.addEventListener("click", () => {
+      slide.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    minimap.appendChild(button);
+    return button;
+  });
+
+  function setActive(index) {
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("is-active", i === index);
+    });
+  }
+
+  setActive(0);
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      const index = slides.indexOf(visible.target);
+      if (index >= 0) setActive(index);
+    },
+    {
+      root: viewer,
+      threshold: [0.45, 0.65, 0.85],
+    }
+  );
+
+  slides.forEach((slide) => observer.observe(slide));
+
+  document.addEventListener("keydown", (event) => {
+    const current = dots.findIndex((dot) => dot.classList.contains("is-active"));
+    if (event.key === "ArrowDown" || event.key === "PageDown") {
+      event.preventDefault();
+      const next = Math.min(slides.length - 1, current + 1);
+      slides[next].scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    if (event.key === "ArrowUp" || event.key === "PageUp") {
+      event.preventDefault();
+      const prev = Math.max(0, current - 1);
+      slides[prev].scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+})();
+
+(() => {
   const gallery = document.querySelector("[data-gallery]");
   if (!gallery) return;
 
