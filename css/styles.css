@@ -647,12 +647,16 @@ body.is-home .nav-submenu a {
     width: calc(var(--nav-main-width));
     max-width: calc(100vw - var(--nav-inset) * 2);
   }
+
+  /* Odd photos left, even photos right — still inside the padded content area */
+  body.is-viewer .viewer-slide:nth-of-type(even) {
+    justify-content: flex-end;
+  }
 }
 
 .viewer-slide {
   margin: 0;
-  width: min(100%, var(--photo-column));
-  max-width: var(--photo-column);
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
