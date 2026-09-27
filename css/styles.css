@@ -234,17 +234,22 @@ body.is-home .nav-submenu a {
   }
 
   body.is-viewer .site-nav {
-    position: sticky;
+    position: relative;
     top: 0;
     right: auto;
-    left: auto;
+    left: 0;
+    inset: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     width: 100%;
     max-width: none;
-    align-items: flex-end;
+    margin: 0;
     gap: 0;
     padding: 0.85rem 1rem 0.75rem;
     background: #faf9f6;
     border-bottom: 1px solid var(--line);
+    box-sizing: border-box;
     animation: none;
     z-index: 60;
   }
@@ -636,10 +641,12 @@ body.is-home .nav-submenu a {
   overflow-x: clip;
 }
 
-/* Keep menu/submenu above photos in the reserved right column */
-body.is-viewer .site-nav {
-  width: calc(var(--nav-main-width));
-  max-width: calc(100vw - var(--nav-inset) * 2);
+/* Desktop only: keep floating nav in the reserved right column */
+@media (min-width: 801px) {
+  body.is-viewer .site-nav {
+    width: calc(var(--nav-main-width));
+    max-width: calc(100vw - var(--nav-inset) * 2);
+  }
 }
 
 .viewer-slide {
