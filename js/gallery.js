@@ -36,7 +36,8 @@
 (() => {
   const toggle = document.querySelector("[data-menu-toggle]");
   const nav = document.querySelector("#site-nav");
-  if (!toggle || !nav) return;
+  const panel = document.querySelector("[data-nav-panel]");
+  if (!toggle || !nav || !panel) return;
 
   function setMenuOpen(open) {
     document.body.classList.toggle("menu-open", open);
@@ -48,13 +49,13 @@
     setMenuOpen(!document.body.classList.contains("menu-open"));
   });
 
-  nav.querySelectorAll("a").forEach((link) => {
+  panel.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => setMenuOpen(false));
   });
 
   document.addEventListener("click", (event) => {
     if (!document.body.classList.contains("menu-open")) return;
-    if (nav.contains(event.target) || toggle.contains(event.target)) return;
+    if (nav.contains(event.target)) return;
     setMenuOpen(false);
   });
 

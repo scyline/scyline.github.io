@@ -88,6 +88,17 @@ button {
   animation: riseIn 0.7s var(--ease) both;
 }
 
+.nav-chrome {
+  display: contents;
+}
+
+.nav-top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+}
+
 .nav-brand {
   font-family: var(--font-display);
   font-size: clamp(1.25rem, 2vw, 1.55rem);
@@ -95,7 +106,6 @@ button {
   letter-spacing: -0.02em;
   text-transform: none;
   color: var(--ink);
-  margin-bottom: 0.35rem;
   text-align: right;
 }
 
@@ -103,9 +113,16 @@ button {
   display: none !important;
 }
 
-/* Mobile-only chrome (hidden on desktop) */
-.viewer-mobile-header {
+.menu-toggle,
+.collection-title {
   display: none;
+}
+
+.nav-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.55rem;
 }
 
 .site-nav a,
@@ -209,109 +226,115 @@ body.is-home .nav-submenu a {
   color: var(--ink-soft);
 }
 
-/* Narrow screens: Menu + name header, collection title, photo column */
+/* Narrow screens: top bar in document flow; photos start below it */
 @media (max-width: 800px) {
   body.is-viewer {
     --nav-rail: 0px;
     --minimap-rail: 0px;
   }
 
-  body.is-viewer .viewer-mobile-header {
-    display: block;
-    position: sticky;
+  body.is-viewer .site-nav {
+    position: relative;
     top: 0;
-    z-index: 60;
-    padding: 0.85rem 1rem 0.75rem;
-    background: rgba(250, 249, 246, 0.94);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
-  }
-
-  .viewer-mobile-bar {
+    right: auto;
+    left: 0;
+    inset: auto;
     display: flex;
-    align-items: center;
-    gap: 0.85rem;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    gap: 0;
+    padding: 0.85rem 1rem 0.75rem;
+    background: #faf9f6;
+    border-bottom: 1px solid var(--line);
+    box-sizing: border-box;
+    animation: none;
+    z-index: 60;
   }
 
-  .menu-toggle {
+  body.is-viewer .nav-chrome {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.45rem;
+    width: 100%;
+  }
+
+  body.is-viewer .nav-top {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.85rem;
+    width: 100%;
+  }
+
+  body.is-viewer .menu-toggle {
+    display: inline-block;
     font-size: 0.78rem;
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--ink);
-    padding: 0.35rem 0;
-  }
-
-  .viewer-brand {
-    font-family: var(--font-display);
-    font-size: 1.35rem;
-    font-weight: 500;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-  }
-
-  .collection-title {
-    margin-top: 0.65rem;
-    font-family: var(--font-display);
-    font-size: 1.05rem;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    color: var(--ink-soft);
+    padding: 0.2rem 0;
   }
 
   body.is-viewer .nav-brand {
+    font-size: 1.35rem;
+  }
+
+  body.is-viewer .collection-title {
+    display: block;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--ink-soft);
+    text-align: right;
+  }
+
+  body.is-viewer .nav-panel {
     display: none;
+    position: absolute;
+    top: calc(100% + 0.35rem);
+    right: 1rem;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
+    margin-top: 0;
+    padding: 0.85rem 1.1rem;
+    min-width: 14rem;
+    width: max-content;
+    max-width: calc(100vw - 1.5rem);
+    background: #faf9f6;
+    border: 1px solid var(--line);
+    z-index: 70;
   }
 
-  body.is-viewer .site-nav {
-    top: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
-    max-width: none;
-    align-items: stretch;
-    gap: 0;
-    padding: 4.75rem 1.25rem 1.25rem;
-    background: rgba(250, 249, 246, 0.98);
-    border-bottom: 1px solid var(--line);
-    transform: translateY(-110%);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
-    animation: none;
-  }
-
-  body.is-viewer.menu-open .site-nav {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
+  body.is-viewer.menu-open .nav-panel {
+    display: flex;
   }
 
   body.is-viewer .site-nav a,
   body.is-viewer .site-nav .nav-trigger {
-    text-align: left;
-    padding: 0.7rem 0;
-    border-bottom: 1px solid var(--line);
-    width: 100%;
-  }
-
-  body.is-viewer .site-nav a::after,
-  body.is-viewer .site-nav .nav-trigger::after {
-    right: auto;
-    left: 0;
-    transform-origin: left;
+    text-align: right;
+    padding: 0.45rem 0;
+    width: auto;
+    white-space: nowrap;
   }
 
   body.is-viewer .nav-item--photo {
-    align-items: stretch;
+    align-items: flex-end;
     width: 100%;
   }
 
   body.is-viewer .nav-submenu {
     position: static;
     right: auto;
-    align-items: stretch;
-    margin-top: 0;
+    align-items: flex-end;
+    margin-top: 0.15rem;
     max-height: 0;
     overflow: hidden;
     opacity: 1;
@@ -327,7 +350,7 @@ body.is-home .nav-submenu a {
   }
 
   body.is-viewer .nav-submenu a {
-    padding-left: 0.75rem;
+    padding-right: 0;
     font-size: 0.72rem;
   }
 
@@ -338,6 +361,7 @@ body.is-home .nav-submenu a {
   body.is-viewer .viewer {
     --photo-column: min(950px, calc(100vw - 2rem));
     gap: 1.5rem;
+    /* No top padding for a fixed overlay — sticky top bar already occupies space */
     padding: 1.25rem 1rem 2.5rem;
   }
 }
@@ -617,16 +641,22 @@ body.is-home .nav-submenu a {
   overflow-x: clip;
 }
 
-/* Keep menu/submenu above photos in the reserved right column */
-body.is-viewer .site-nav {
-  width: calc(var(--nav-main-width));
-  max-width: calc(100vw - var(--nav-inset) * 2);
+/* Desktop only: keep floating nav in the reserved right column */
+@media (min-width: 801px) {
+  body.is-viewer .site-nav {
+    width: calc(var(--nav-main-width));
+    max-width: calc(100vw - var(--nav-inset) * 2);
+  }
+
+  /* Odd photos left, even photos right — still inside the padded content area */
+  body.is-viewer .viewer-slide:nth-of-type(even) {
+    justify-content: flex-end;
+  }
 }
 
 .viewer-slide {
   margin: 0;
-  width: min(100%, var(--photo-column));
-  max-width: var(--photo-column);
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
