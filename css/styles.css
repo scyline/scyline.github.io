@@ -345,7 +345,7 @@ body.is-home .nav-submenu a {
   }
 
   body.is-viewer .nav-item--photo.is-open .nav-submenu {
-    max-height: 14rem;
+    max-height: 18rem;
     pointer-events: auto;
   }
 
@@ -383,7 +383,7 @@ body.is-home .nav-submenu a {
   }
 
   .nav-item--photo.is-open .nav-submenu {
-    max-height: 12rem;
+    max-height: 16rem;
     margin-top: 0.55rem;
     pointer-events: auto;
   }

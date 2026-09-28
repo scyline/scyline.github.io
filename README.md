@@ -6,7 +6,7 @@ Static site for [scyline.github.io](https://scyline.github.io).
 
 - Home — `index.html`
 - Photography hub — `photography/index.html`
-- Categories (vertical viewer + left minimap) — `photography/street/`, `architecture/`, `travel/`, `film/`
+- Categories (vertical viewer + left minimap) — `photography/street/`, `daily-life/`, `architecture/`, `travel/`, `film/`
 - About — `about.html`
 - Contact — `contact.html` (email + Instagram [@lazy_mdlr](https://www.instagram.com/lazy_mdlr/))
 
@@ -15,6 +15,7 @@ Static site for [scyline.github.io](https://scyline.github.io).
 1. Export a web-sized JPG (longest side about 1600–2000px, quality ~75–85%). Avoid spaces in the filename, e.g. `street-04.jpg`.
 2. Put the file in the matching folder:
    - Street → `images/street/`
+   - Daily Life → `images/daily-life/`
    - Architecture → `images/architecture/`
    - Travel → `images/travel/`
    - Film → `images/film/`
