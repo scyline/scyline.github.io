@@ -9,6 +9,34 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../css/styles.css">
+  <style>
+    .viewer-intro,
+    .viewer-section-title {
+      width: min(100%, 950px, var(--photo-column));
+      align-self: flex-start;
+      text-align: left;
+    }
+
+    .viewer-intro {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .viewer-intro p {
+      max-width: 42rem;
+      color: var(--ink-soft);
+      font-size: 1.08rem;
+    }
+
+    .viewer-section-title {
+      margin: clamp(0.75rem, 2vw, 1.5rem) 0 0;
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.25rem);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+  </style>
 </head>
 <body class="is-viewer">
   <nav class="site-nav" id="site-nav" aria-label="Primary">
@@ -35,6 +63,11 @@
   <aside class="minimap" data-minimap aria-label="Photo collection map"></aside>
 
   <main class="viewer" data-viewer>
+    <header class="viewer-intro">
+      <p>A study of the moments in between: waiting for trains, crossing streets, sitting on buses, standing on platforms. Time that is neither work nor leisure, but simply passes.</p>
+      <h1 class="viewer-section-title">under the ground</h1>
+    </header>
+
     <!--
       HOW TO ADD A PHOTO
       1. Put the file in /images/in-between/ (e.g. in-between-01.jpg)
@@ -66,6 +99,9 @@
     <figure class="viewer-slide" id="photo-8" data-viewer-slide>
       <img src="../../images/in-between/in-between-08.jpg" alt="In Between photograph 08">
     </figure>
+
+    <h2 class="viewer-section-title">above the ground</h2>
+
     <figure class="viewer-slide" id="photo-9" data-viewer-slide>
       <img src="../../images/in-between/in-between-09.jpg" alt="In Between photograph 09">
     </figure>
