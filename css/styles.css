@@ -53,7 +53,7 @@ body.is-home {
 }
 
 body.is-viewer {
-  background: #faf9f6;
+  background: #f0f3f7;
 }
 
 img {
@@ -246,7 +246,7 @@ body.is-home .nav-submenu a {
     margin: 0;
     gap: 0;
     padding: 0.85rem 1rem 0.75rem;
-    background: #faf9f6;
+    background: #f0f3f7;
     border-bottom: 1px solid var(--line);
     box-sizing: border-box;
     animation: none;
@@ -307,7 +307,7 @@ body.is-home .nav-submenu a {
     min-width: 14rem;
     width: max-content;
     max-width: calc(100vw - 1.5rem);
-    background: #faf9f6;
+    background: #f0f3f7;
     border: 1px solid var(--line);
     z-index: 70;
   }
