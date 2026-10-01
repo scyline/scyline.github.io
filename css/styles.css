@@ -3,8 +3,8 @@
 :root {
   --ink: #1a1d21;
   --ink-soft: #4a5058;
-  --paper: #f4f5f2;
-  --paper-deep: #e6e8e2;
+  --paper: #f0f3f7;
+  --paper-deep: #e1e8f0;
   --line: rgba(26, 29, 33, 0.12);
   --accent: #3f5a52;
   --accent-soft: #5f7a70;
@@ -226,7 +226,6 @@ body.is-home .nav-submenu a {
   color: var(--ink-soft);
 }
 
-/* Narrow screens: top bar in document flow; photos start below it */
 @media (max-width: 800px) {
   body.is-viewer {
     --nav-rail: 0px;
@@ -361,7 +360,6 @@ body.is-home .nav-submenu a {
   body.is-viewer .viewer {
     --photo-column: min(950px, calc(100vw - 2rem));
     gap: 1.5rem;
-    /* No top padding for a fixed overlay — sticky top bar already occupies space */
     padding: 1.25rem 1rem 2.5rem;
   }
 }
@@ -641,14 +639,12 @@ body.is-home .nav-submenu a {
   overflow-x: clip;
 }
 
-/* Desktop only: keep floating nav in the reserved right column */
 @media (min-width: 801px) {
   body.is-viewer .site-nav {
     width: calc(var(--nav-main-width));
     max-width: calc(100vw - var(--nav-inset) * 2);
   }
 
-  /* Odd photos left, even photos right — still inside the padded content area */
   body.is-viewer .viewer-slide:nth-of-type(even) {
     justify-content: flex-end;
   }
@@ -852,7 +848,6 @@ body.is-home .nav-submenu a {
 
   :root {
     --minimap-rail: 2.85rem;
-    /* Submenu stacks under Photography on small screens; reserve main nav only */
     --nav-submenu-width: 0rem;
     --nav-submenu-gap: 0rem;
     --nav-main-width: 6.5rem;
