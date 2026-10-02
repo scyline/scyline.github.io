@@ -622,7 +622,7 @@ body.is-home .nav-submenu a {
   display: block;
   width: auto;
   height: auto;
-  max-width: min(100%, 700px, var(--photo-column));
+  max-width: min(100%, 500px, var(--photo-column));
   max-height: 700px;
   object-fit: contain;
 }
