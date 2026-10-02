@@ -392,7 +392,7 @@ body.is-home .nav-submenu a {
   }
 
   .nav-item--photo.is-open .nav-submenu {
-    max-height: 12rem;
+    max-height: 20rem;
     margin-top: 0.55rem;
     pointer-events: auto;
   }
