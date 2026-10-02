@@ -997,12 +997,6 @@ body.is-home .nav-submenu a {
     padding-left: calc(var(--minimap-rail) + 0.65rem);
   }
 
-  body.is-viewer-grid .viewer,
-  body.is-viewer-grid .viewer.viewer--grid {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
   .lightbox-prev,
   .lightbox-next {
     top: auto;
