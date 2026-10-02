@@ -68,6 +68,7 @@
   const viewer = document.querySelector("[data-viewer]");
   const minimap = document.querySelector("[data-minimap]");
   if (!viewer || !minimap) return;
+  if (document.body.classList.contains("is-viewer-grid")) return;
 
   const slides = [...viewer.querySelectorAll("[data-viewer-slide]")];
   if (!slides.length) return;
