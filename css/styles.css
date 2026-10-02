@@ -705,6 +705,10 @@ body.is-home .nav-submenu a {
   margin-top: 1rem;
 }
 
+.about-photo {
+  margin-top: 1.5rem; /* tweak: 1rem–2.5rem */
+}
+
 .contact-list {
   list-style: none;
   margin-top: 2rem;
