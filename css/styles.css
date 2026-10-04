@@ -753,8 +753,8 @@ body.is-home .nav-submenu a {
   z-index: 100;
   display: grid;
   place-items: center;
-  padding: 1.25rem;
-  background: rgba(12, 14, 16, 0.88);
+  padding: 0.75rem;
+  background: rgba(12, 14, 16, 0.92);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s var(--ease), visibility 0.3s var(--ease);

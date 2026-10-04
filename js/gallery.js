@@ -164,9 +164,7 @@
   prevBtn.addEventListener("click", () => show(index - 1));
   nextBtn.addEventListener("click", () => show(index + 1));
   lightbox.addEventListener("click", (event) => {
-    if (event.target === lightbox || event.target === lightbox.querySelector(".lightbox-inner")) {
-      close();
-    }
+    if (event.target === lightbox) close();
   });
 
   document.addEventListener("keydown", (event) => {
