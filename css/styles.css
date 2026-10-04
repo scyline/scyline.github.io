@@ -149,14 +149,14 @@ button {
 .site-nav .nav-trigger::before {
   content: "";
   position: absolute;
-  left: 0;
-  top: 0.55em;
+  left: 0.15rem;
+  top: 50%;
   width: 0.32rem;
   height: 0.32rem;
   border-radius: 50%;
   background: currentColor;
   opacity: 0;
-  transform: scale(0.4);
+  transform: translateY(-50%) scale(0.4);
   transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
 }
 
@@ -172,7 +172,7 @@ button {
 .site-nav .nav-item--photo.is-open .nav-trigger::before,
 .site-nav .nav-submenu a[aria-current="page"]::before {
   opacity: 1;
-  transform: scale(1);
+  transform: translateY(-50%) scale(1);
 }
 
 body.is-home .site-nav a,
@@ -325,15 +325,15 @@ body.is-home .nav-submenu a {
 
   body.is-viewer .site-nav a,
   body.is-viewer .site-nav .nav-trigger {
-    text-align: right;
-    padding: 0.32rem 0;
+    text-align: left;
+    padding: 0.32rem 0 0.32rem 1rem;
     width: auto;
     white-space: nowrap;
   }
 
   body.is-viewer .nav-item--photo {
     align-items: flex-end;
-    width: 100%;
+    width: auto;
   }
 
   body.is-viewer .nav-submenu {
@@ -356,7 +356,7 @@ body.is-home .nav-submenu a {
   }
 
   body.is-viewer .nav-submenu a {
-    padding-right: 0;
+    padding: 0.28rem 0 0.28rem 1rem;
     font-size: 0.95rem;
   }
 
@@ -616,6 +616,7 @@ body.is-home .nav-submenu a {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  cursor: pointer;
 }
 
 .viewer-slide img {
@@ -625,6 +626,11 @@ body.is-home .nav-submenu a {
   max-width: min(100%, 700px, var(--photo-column));
   max-height: 700px;
   object-fit: contain;
+  transition: opacity 0.25s var(--ease);
+}
+
+.viewer-slide:hover img {
+  opacity: 0.92;
 }
 
 .viewer-section-title {
@@ -747,8 +753,8 @@ body.is-home .nav-submenu a {
   z-index: 100;
   display: grid;
   place-items: center;
-  padding: 1.25rem;
-  background: rgba(12, 14, 16, 0.88);
+  padding: 0.75rem;
+  background: rgba(12, 14, 16, 0.92);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s var(--ease), visibility 0.3s var(--ease);
@@ -760,7 +766,8 @@ body.is-home .nav-submenu a {
 }
 
 .lightbox-inner {
-  width: min(100%, 960px);
+  width: min(100%, 100vw);
+  max-width: none;
   display: grid;
   gap: 0.85rem;
   color: #f2f4f1;
@@ -774,12 +781,16 @@ body.is-home .nav-submenu a {
 
 .lightbox-figure {
   margin: 0;
-  background: #111;
+  background: transparent;
+  display: grid;
+  place-items: center;
 }
 
 .lightbox-figure img {
-  width: 100%;
-  max-height: min(78vh, 820px);
+  width: auto;
+  height: auto;
+  max-width: min(100vw - 2rem, 1400px);
+  max-height: min(92vh, 100dvh - 2rem);
   object-fit: contain;
   margin: 0 auto;
 }

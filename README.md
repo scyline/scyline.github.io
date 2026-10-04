@@ -25,6 +25,17 @@ Static site for [scyline.github.io](https://scyline.github.io).
 
 The left minimap builds automatically from `[data-viewer-slide]` elements on vertical viewers.
 
+## Tests
+
+Unit tests cover menu selection-dot positioning (including narrow screens) and the fullscreen photo lightbox.
+
+```bash
+npm install
+npm test
+```
+
+GitHub Actions runs `npm test` on every push and pull request (see `.github/workflows/test.yml`).
+
 ## Publish changes
 
 Commit and push to `main`. GitHub Pages will update `https://scyline.github.io` within a minute or two.
