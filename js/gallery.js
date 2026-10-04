@@ -65,10 +65,9 @@
 })();
 
 (() => {
-  const gallery = document.querySelector("[data-gallery]");
-  if (!gallery) return;
-
-  const items = [...gallery.querySelectorAll(".gallery-item")];
+  const galleryItems = [...document.querySelectorAll("[data-gallery] .gallery-item")];
+  const viewerSlides = [...document.querySelectorAll("[data-viewer] [data-viewer-slide]")];
+  const items = galleryItems.length ? galleryItems : viewerSlides;
   if (!items.length) return;
 
   const lightbox = document.createElement("div");
@@ -104,8 +103,8 @@
   function readItem(item) {
     const picture = item.querySelector("img");
     return {
-      src: item.dataset.full || picture.src,
-      alt: picture.alt || "",
+      src: item.dataset.full || (picture && (picture.currentSrc || picture.src)) || "",
+      alt: (picture && picture.alt) || "",
       title: (item.dataset.title || "").trim(),
       caption: (item.dataset.caption || "").trim(),
     };
@@ -158,19 +157,24 @@
     });
     if (!item.hasAttribute("tabindex")) item.tabIndex = 0;
     item.setAttribute("role", "button");
-    item.setAttribute("aria-label", "Open photo");
+    item.setAttribute("aria-label", "View photo fullscreen");
   });
 
   closeBtn.addEventListener("click", close);
   prevBtn.addEventListener("click", () => show(index - 1));
   nextBtn.addEventListener("click", () => show(index + 1));
   lightbox.addEventListener("click", (event) => {
-    if (event.target === lightbox) close();
+    if (event.target === lightbox || event.target === lightbox.querySelector(".lightbox-inner")) {
+      close();
+    }
   });
 
   document.addEventListener("keydown", (event) => {
     if (!lightbox.classList.contains("is-open")) return;
-    if (event.key === "Escape") close();
+    if (event.key === "Escape") {
+      event.stopPropagation();
+      close();
+    }
     if (event.key === "ArrowLeft") show(index - 1);
     if (event.key === "ArrowRight") show(index + 1);
   });
